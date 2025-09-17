@@ -12,7 +12,7 @@ export function Key({ char, activeKey, cls }: KeyProps) {
   return (
     <motion.div
       className={`${cls} border rounded-2xl p-3 w-full h-full ${
-        isActive ? "bg-green-400 text-white" : ""
+        isActive ? "bg-green-800 text-white" : "bg-black"
       }`}
       animate={{
         scale: isActive ? 1.1 : 1,
