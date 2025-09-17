@@ -2,10 +2,15 @@
 import { useState } from "react";
 import { Key } from "./Key";
 import { useHotkeys } from "react-hotkeys-hook";
+import SwitchRgb from "./SwitchRgb";
+import SwitchSound from "./SwitchSound";
 
 export default function Keyboard() {
   const [activeKey, setActiveKey] = useState<string | null>(null);
-  console.log(activeKey);
+  const [rgb, setRgb] = useState(false);
+  const [sound, setSound] = useState(false);
+
+  // console.log(activeKey);
 
   // Ловим все клавиши
   useHotkeys("*", (event) => {
@@ -18,7 +23,11 @@ export default function Keyboard() {
 
   return (
     <div>
-      <div className="space-y-1">
+      <div className="flex gap-4">
+        <SwitchRgb rgb={rgb} setRgb={setRgb} />
+        <SwitchSound sound={sound} setSound={setSound} />
+      </div>
+      <div className={`space-y-1 p-7 ${rgb ? "keyboard" : ""}`}>
         {/* Первый ряд */}
         <div className="grid grid-cols-15 gap-1 text-center">
           <Key char="~" activeKey={activeKey} />
