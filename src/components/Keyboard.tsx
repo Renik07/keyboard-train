@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Key } from "./Key";
 import { useHotkeys } from "react-hotkeys-hook";
 import SwitchRgb from "./SwitchRgb";
@@ -12,10 +12,24 @@ export default function Keyboard() {
 
   // console.log(activeKey);
 
+  // Загружаем звук
+  const soundRef = useRef<HTMLAudioElement | null>(null);
+  useEffect(() => {
+    soundRef.current = new Audio("/sounds/key-click.MP3");
+  }, []);
+
   // Ловим все клавиши
   useHotkeys("*", (event) => {
     const key = event.key.toLowerCase();
     setActiveKey(key);
+
+    // Если включен звук
+    if (sound && soundRef.current) {
+      // Создаём клон, чтобы звук играл поверх
+      const audio = soundRef.current.cloneNode() as HTMLAudioElement;
+      audio.volume = 0.5;
+      audio.play().catch(() => {}); // ловим ошибку, если браузер блокнул
+    }
 
     // Чтобы подсветка исчезала после отпускания
     setTimeout(() => setActiveKey(null), 200);

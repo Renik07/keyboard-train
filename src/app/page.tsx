@@ -1,10 +1,11 @@
 import Keyboard from "@/components/Keyboard";
-import Image from "next/image";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center h-[100%]">
       <Keyboard />
+      <CustomCursor />
     </div>
   );
 }
