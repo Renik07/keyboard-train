@@ -120,8 +120,17 @@
 
 	body {
 		@apply bg-background text-foreground;
+		height: 100vh;
 	}
 }
+
+* {
+	cursor: none !important;
+}
+
+/* body {
+	@apply cursor: none !important;
+} */
 
 
 .keyboard {
