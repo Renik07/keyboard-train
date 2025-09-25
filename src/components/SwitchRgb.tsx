@@ -23,7 +23,7 @@ export default function SwitchRgb({ rgb, setRgb }: SwitchRgbProps) {
       </motion.div>
       <Label
         htmlFor="rgb-mode"
-        className={`cursor-pointer select-none transition-colors ${
+        className={`cursor-pointer select-none transition-colors text-xl ${
           rgb
             ? "bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent"
             : ""
