@@ -20,7 +20,7 @@ export default function SwitchSound({ sound, setSound }: SwitchSoundProps) {
       />
       <Label htmlFor="sound-mode" className="cursor-pointer">
         {/* Иконка с анимацией */}
-        <div className="relative w-6 h-6">
+        <div className="relative w-8 h-8">
           <AnimatePresence mode="wait" initial={false}>
             {sound ? (
               <motion.div
@@ -31,7 +31,7 @@ export default function SwitchSound({ sound, setSound }: SwitchSoundProps) {
                 transition={{ duration: 0.25 }}
                 className="absolute inset-0 flex items-center justify-center text-emerald-500"
               >
-                <Volume2 size={24} />
+                <Volume2 size={30} />
               </motion.div>
             ) : (
               <motion.div
@@ -42,7 +42,7 @@ export default function SwitchSound({ sound, setSound }: SwitchSoundProps) {
                 transition={{ duration: 0.25 }}
                 className="absolute inset-0 flex items-center justify-center text-red-500"
               >
-                <VolumeX size={24} />
+                <VolumeX size={30} />
               </motion.div>
             )}
           </AnimatePresence>
